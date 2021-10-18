@@ -15,6 +15,7 @@ from webapp.cube.api import BadgrAPI, EdxAPI
 from webapp.decorators import login_required
 from webapp.login import user_info
 from webapp.advantage.ua_contracts.api import UAContractsAPI
+from webapp.advantage.context import get_stripe_publishable_key
 
 CUBE_CONTENT = yaml.load(
     Path("webapp/cube/content/cube.yaml").read_text(), Loader=yaml.Loader
@@ -141,6 +142,7 @@ def cube_microcerts():
             "has_enrollments": len(enrollments) > 0,
             "has_study_labs": study_labs in enrollments,
             "study_labs_url": study_labs_url,
+            "get_stripe_publishable_key": get_stripe_publishable_key(),
         },
     )
 

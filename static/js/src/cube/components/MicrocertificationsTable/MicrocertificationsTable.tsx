@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Button, ContextualMenu, MainTable } from "@canonical/react-components";
+import { ContextualMenu, MainTable } from "@canonical/react-components";
+
+import CubePurchase from "../CubePurchase";
 
 export enum Status {
   Enrolled = "enrolled",
@@ -144,7 +146,7 @@ const TableView = () => {
           ]}
         />
       ) : (
-        <Button appearance={"positive"}>Purchase</Button>
+        <CubePurchase />
       )}
     </div>
   );
