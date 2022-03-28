@@ -304,3 +304,16 @@ if (accountContainer && accountContainerSmall) {
       );
     });
 }
+
+if (
+  localStorage.getItem("dismissedOnboardingNotification") === "false" ||
+  localStorage.getItem("dismissedOnboardingNotification") === null
+) {
+  document
+    .querySelectorAll(".breadcrumbs__item a.breadcrumbs__link")
+    .forEach((element) => {
+      if (element.textContent === "Account users") {
+        element.innerHTML = `Account Users <span class="p-label--positive">New</span>`;
+      }
+    });
+}
